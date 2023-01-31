@@ -1,0 +1,407 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>vue | Y3000's Blog</title><meta name="author" content="Y3000"><meta name="copyright" content="Y3000"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Vue知识补充前端工程化概念：   前端工程化的解决方案： 早期：  grunt gulp  目前:webpack webpack主要功能:它提供了友好的前端模块化开发支持，以及代码压缩混淆、处理浏览器端JavaScript的兼容性、性能优化等强大的功能。  npm安装小tips：   dependencies: 开发和上线阶段都会用到的依赖  devDependencies: 只在开发阶段需要的">
+<meta property="og:type" content="website">
+<meta property="og:title" content="vue">
+<meta property="og:url" content="http://example.com/%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="Y3000&#39;s Blog">
+<meta property="og:description" content="Vue知识补充前端工程化概念：   前端工程化的解决方案： 早期：  grunt gulp  目前:webpack webpack主要功能:它提供了友好的前端模块化开发支持，以及代码压缩混淆、处理浏览器端JavaScript的兼容性、性能优化等强大的功能。  npm安装小tips：   dependencies: 开发和上线阶段都会用到的依赖  devDependencies: 只在开发阶段需要的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7">
+<meta property="article:published_time" content="2022-11-04T07:30:20.000Z">
+<meta property="article:modified_time" content="2022-11-04T07:57:50.199Z">
+<meta property="article:author" content="Y3000">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"><link rel="shortcut icon" href="/img/icon.png"><link rel="canonical" href="http://example.com/%E6%A1%86%E6%9E%B6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'vue',
+  isPost: false,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-11-04 15:57:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.0.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/pic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 前端学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/%E6%A1%86%E6%9E%B6"><i class="fa-fw fa-brands fa-vuejs"></i><span> 框架</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> Resource</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="not-home-page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Y3000's Blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 前端学习</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/%E6%A1%86%E6%9E%B6"><i class="fa-fw fa-brands fa-vuejs"></i><span> 框架</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-archive"></i><span> 目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> Resource</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="page-site-info"><h1 id="site-title">vue</h1></div></header><main class="layout" id="content-inner"><div id="page"><div id="article-container"><h2 id="Vue知识补充"><a href="#Vue知识补充" class="headerlink" title="Vue知识补充"></a>Vue知识补充</h2><h3 id="前端工程化"><a href="#前端工程化" class="headerlink" title="前端工程化"></a><strong>前端工程化</strong></h3><p>概念：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546489.png" alt="1665669231248"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546490.png" alt="1665669556871"></p>
+<p><strong>前端工程化的解决方案：</strong></p>
+<p>早期：</p>
+<ul>
+<li>grunt</li>
+<li>gulp</li>
+</ul>
+<p>目前:webpack</p>
+<h3 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h3><p>主要功能:它提供了友好的前端模块化开发支持，以及代码压缩混淆、处理浏览器端JavaScript的兼容性、性<br>能优化等强大的功能。</p>
+<blockquote>
+<p>npm安装小tips：</p>
+</blockquote>
+<ul>
+<li><p>dependencies: 开发和上线阶段都会用到的依赖</p>
+</li>
+<li><p>devDependencies: 只在开发阶段需要的依赖包</p>
+</li>
+</ul>
+<blockquote>
+<p>-S是–save的简写  安装后会在dependencies里面记录<br>-D是–save-dev的简写 安装后会在devDependencies里面记录</p>
+<p>去 npmjs.com 搜索是否带哪个参数</p>
+</blockquote>
+<p>安装webpack：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack@<span class="number">5</span>.<span class="number">42</span>.<span class="number">1</span> webpack-cli@<span class="number">4</span>.<span class="number">7</span>.<span class="number">2</span> -D</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="项目中配置webpack"><a href="#项目中配置webpack" class="headerlink" title="项目中配置webpack"></a><strong>项目中配置webpack</strong></h4><h5 id="mode配置"><a href="#mode配置" class="headerlink" title="mode配置"></a>mode配置</h5><p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546491.png" alt="1665671003300"></p>
+<p><em>mode参数</em>：</p>
+<ul>
+<li>development ：开发时用，打包快</li>
+<li>production：上线时用，体积小，打包少慢</li>
+</ul>
+<h5 id="entry-配置：指定入口文件"><a href="#entry-配置：指定入口文件" class="headerlink" title="entry 配置：指定入口文件"></a>entry 配置：指定入口文件</h5><p><strong>默认约定</strong></p>
+<p>在webpack 4.x和5.x的版本中，有如下的默认约定:<br>①默认的打包入口文件为 <code>src -&gt; index.js </code><br>②默认的输出文件路径为<code>dist -&gt; main.js</code></p>
+<blockquote>
+<p>注意:可以在webpack.config.js中修改打包的默认约定</p>
+</blockquote>
+<h5 id="output-：指定打包后的文件输出位置"><a href="#output-：指定打包后的文件输出位置" class="headerlink" title="output ：指定打包后的文件输出位置"></a>output ：指定打包后的文件输出位置</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    <span class="comment">//存放到目录</span></span><br><span class="line">    <span class="attr">path</span>: path.join(__dirname, <span class="string">&#x27;dist&#x27;</span>),	</span><br><span class="line">    <span class="comment">//生成的文件名</span></span><br><span class="line">    <span class="attr">filename</span>: <span class="string">&#x27;bundle.js&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="devserver配置：可以运行后自动打开浏览器运行"><a href="#devserver配置：可以运行后自动打开浏览器运行" class="headerlink" title="devserver配置：可以运行后自动打开浏览器运行"></a>devserver<strong>配置：可以运行后自动打开浏览器运行</strong></h5><p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546492.png" alt="1665751103442"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546493.png" alt="1665751028017"></p>
+<h5 id="resolve配置：-路径匹配"><a href="#resolve配置：-路径匹配" class="headerlink" title="resolve配置： @路径匹配"></a>resolve配置： @路径匹配</h5><p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546494.png" alt="1665757618968"></p>
+<h4 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h4><p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546495.png" alt="1665746075689"></p>
+<p>安装：</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack-dev-server@<span class="number">3</span>.<span class="number">11</span>.<span class="number">2</span> -D</span><br><span class="line">npm install html-webpack-plugin@<span class="number">5</span>.<span class="number">3</span>.<span class="number">2</span> -D</span><br></pre></td></tr></table></figure>
+
+<p>配置：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546496.png" alt="1665746706425"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546497.png" alt="1665747531208"></p>
+<blockquote>
+<p>tips：==vue-cli 可以自动生成webpack的配置==</p>
+</blockquote>
+<h4 id="webpack中的loader"><a href="#webpack中的loader" class="headerlink" title="webpack中的loader"></a>webpack中的loader</h4><p><strong>配置CSS Loader</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546498.png" alt="1665751800592"></p>
+<p><strong>配置Less loader</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546499.png" alt="1665752686035"></p>
+<p><strong>配置路径相关的loader 处理图片文件</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546500.png" alt="1665752854995"></p>
+<h5 id="bable-loader-高级js语法处理"><a href="#bable-loader-高级js语法处理" class="headerlink" title="bable-loader 高级js语法处理"></a>bable-loader 高级js语法处理</h5><p>配置：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546501.png" alt="1665754089020"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546092.png" alt="1665754250539"></p>
+<blockquote>
+<p>tips: 可以去看bable 官网的配置说明</p>
+</blockquote>
+<h4 id="打包发布"><a href="#打包发布" class="headerlink" title="打包发布"></a>打包发布</h4><p>配置build：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546502.png" alt="1665754544340"></p>
+<p>配置打包后目录：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546503.png" alt="1665754988336"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546504.png" alt="1665755363356"></p>
+<h5 id="自动删除dist-目录更新"><a href="#自动删除dist-目录更新" class="headerlink" title="自动删除dist 目录更新"></a>自动删除dist 目录更新</h5><p>clean-webpack-plugin 插件安装</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546505.png" alt="1665756331946"></p>
+<h4 id="souceMap"><a href="#souceMap" class="headerlink" title="souceMap"></a>souceMap</h4><blockquote>
+<p>Source Map就是一个信息文件， 里面储存着<strong>位置信息</strong>。也就是说，Source Map文件中存储着压缩混淆后的代码，所对应的转换前的位置。<br>有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码，能够极大的方便后期的调试。</p>
+</blockquote>
+<p><strong>默认的sourceMap有个问题：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546506.png" alt="1665756844325"></p>
+<p><strong>解决：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546507.png" alt="1665756895525"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546508.png" alt="1665757163571"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546509.png" alt="1665757346797"></p>
+<h2 id="Vue框架的特性"><a href="#Vue框架的特性" class="headerlink" title="Vue框架的特性"></a>Vue框架的特性</h2><ol>
+<li><p>数据驱动视图</p>
+<p>页面数据发生变化时，会自动渲染视图</p>
+</li>
+<li><p>双向数据绑定</p>
+<p><strong>表单</strong> 视图上表单采集的数据会自动更新到js数据中，而js数据改变也会自动更新到视图</p>
+</li>
+</ol>
+<h3 id="MVVM框架"><a href="#MVVM框架" class="headerlink" title="MVVM框架"></a><strong>MVVM框架</strong></h3><p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546510.png" alt="1665821538707"></p>
+<p>当<strong>数据源</strong>发生变化时，会被ViewModel监听到, VM会根据最新的数据源自动更新页面的结构。<br>当<strong>表单元素</strong>的值发生变化时，也会被VM监听到，VM会把变化过后最新的值自动同步到Model数据源中。</p>
+<h3 id="Vue的指令与过滤器"><a href="#Vue的指令与过滤器" class="headerlink" title="Vue的指令与过滤器"></a>Vue的指令与过滤器</h3><p>指令：就是Vue中的模板语法</p>
+<p>vue中的指令按照不同的用途可以分为如下6大类:<br>①内容渲染指令</p>
+<ul>
+<li><p>v-text （会覆盖元素内部默认值，很少使用）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546511.png" alt="1665822813659"></p>
+</li>
+<li><p><code>&#123;&#123;&#125;&#125;  </code> 插值表达式</p>
+<blockquote>
+<p>只能用在内容节点，不能用在属性节点</p>
+<p>可以使用js表达式计算值</p>
+</blockquote>
+</li>
+<li><p>v-html ： 可以把包含HTML标签的字符串渲染为页面的HTML元素,</p>
+</li>
+</ul>
+<p>②属性绑定指令</p>
+<ul>
+<li><p>v-bind  简写 <code>:</code></p>
+<blockquote>
+<p>可以使用js表达式，例如：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546512.png" alt="1665823874386"></p>
+<p>是单向绑定，数据变化渲染到页面</p>
+</blockquote>
+</li>
+</ul>
+<p>③事件绑定指令</p>
+<ul>
+<li><p>v-on 简写：<code>@</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;button v-on:click=<span class="string">&quot;add&quot;</span>&gt;&lt;/button&gt;</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;add(1)&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意:原生DOM对象有onclick、oninput、 onkeyup等原生事件，替换为vue的事件绑定形式后,<br>分别为: v-on:click、 v-on:input、 v-on:keyup</p>
+</blockquote>
+<p>当绑定的事件<strong>没有传参</strong>时，方法会默认接收当前<strong>触发事件的DOM节点对象</strong>；如果传了参数 ，就接收的是参数，==如何既传递参数又能获取当前触发事件的DOM节点呢？==</p>
+<blockquote>
+<p>手动$event 传参：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546514.png" alt="1665824761719"></p>
+</blockquote>
+<p><strong>事件修饰符：</strong></p>
+<ul>
+<li> .prevent， 阻止事件的默认行为</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546515.png" alt="1665825023449"></p>
+<ul>
+<li><p>阻止冒泡应用场景：当父元素和子元素分别绑定了不同的事件，点击父元素会正常触发事件，但是点击子元素时，会先触发子元素绑定事件，然后点击事件会冒泡到父元素，导致父元素也触发了事件。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546516.png" alt="1665825092360"></p>
+</li>
+<li><p>按键修饰符：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546517.png" alt="1665825545106"></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>④双向绑定指令</p>
+<ul>
+<li><p>v-model</p>
+<blockquote>
+<p>只能和表单元素进行绑定： input、 textarea、 select</p>
+</blockquote>
+<p>修饰符：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546518.png" alt="1665831303688"></p>
+</li>
+</ul>
+<p>⑤条件渲染指令</p>
+<ul>
+<li>v-if</li>
+<li>v-show</li>
+</ul>
+<p>⑥列表渲染指令</p>
+<ul>
+<li><p>v-for</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546519.png" alt="1665835002310"></p>
+</li>
+</ul>
+<h3 id="Watch侦听器"><a href="#Watch侦听器" class="headerlink" title="Watch侦听器"></a>Watch侦听器</h3><p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546520.png" alt="1665835217031"></p>
+<p><strong>立即执行watch侦听器：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546521.png" alt="1665835354266"></p>
+<p><strong>监听对象中变化——deep</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546522.png" alt="1665835433992"></p>
+<p><strong>监听对象单个属性变化：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546523.png" alt="1665835503882"></p>
+<h3 id="计算属性-computed"><a href="#计算属性-computed" class="headerlink" title="计算属性 computed"></a>计算属性 computed</h3><p>是以方法的形式定义的，使用时当成方法使用</p>
+<p>实现了代码复用</p>
+<p>只要计算属性值依赖的数据源变化后，计算属性会自动重新计算求值</p>
+<h2 id="双向数据绑定实现原理"><a href="#双向数据绑定实现原理" class="headerlink" title="双向数据绑定实现原理"></a>双向数据绑定实现原理</h2><p>1.通过object.defineProperty()劫持属性的getter、setter</p>
+<p>2.处理文档碎片，模板编译</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546524.png" alt="1665975595638"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546525.png" alt="1665975585307"></p>
+<p>3.发布订阅</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546526.png" alt="1665970812382"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546527.png" alt="1665970797226"></p>
+<p>创建Watcher类的实例</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546528.png" alt="1665978530482"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546529.png" alt="1665970972266"></p>
+<p>把watcher实例存储到dep.subs数组中</p>
+<p>通过取值，将属性getter执行一遍，把属性添加到订阅者数组里面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546530.png" alt="1665971476837"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546531.png" alt="1665971530143"></p>
+<p>data到view的单向数据绑定实现，在update函数里面执行cb回调函数</p>
+<p><img src="https://cdn.jsdelivr.net/gh/y3000/ImgRepo/img/202211041546532.png" alt="1665971744821"></p>
+<p>双向数据绑定，将DOM上的值赋值到vm上的属性的值</p>
+</div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div><div id="comment-switch"><span class="first-comment">Valine</span><span class="switch-btn"></span><span class="second-comment">Disqus</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div><div><div id="disqus_thread"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/pic.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Y3000</div><div class="author-info__description">我的个人博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">11</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">4</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/y3000"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到Y3000的博客</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/04/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/React%E8%A6%81%E7%82%B9/" title="React 要点"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="React 要点"/></a><div class="content"><a class="title" href="/2022/11/04/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E5%AD%A6%E4%B9%A0/React%E8%A6%81%E7%82%B9/" title="React 要点">React 要点</a><time datetime="2022-11-04T11:19:01.000Z" title="发表于 2022-11-04 19:19:01">2022-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/03/GitHub-PicGo%E5%9B%BE%E5%BA%8A/" title="GitHub+PicGo图床"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="GitHub+PicGo图床"/></a><div class="content"><a class="title" href="/2022/11/03/GitHub-PicGo%E5%9B%BE%E5%BA%8A/" title="GitHub+PicGo图床">GitHub+PicGo图床</a><time datetime="2022-11-03T13:08:12.000Z" title="发表于 2022-11-03 21:08:12">2022-11-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/07/node%E5%AD%A6%E4%B9%A0/" title="node学习"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="node学习"/></a><div class="content"><a class="title" href="/2022/09/07/node%E5%AD%A6%E4%B9%A0/" title="node学习">node学习</a><time datetime="2022-09-07T08:32:41.000Z" title="发表于 2022-09-07 16:32:41">2022-09-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/09/c-c-%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%8C%85%E5%90%AB%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="c/c++ 判断一个字符串中包含另一个字符串"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="c/c++ 判断一个字符串中包含另一个字符串"/></a><div class="content"><a class="title" href="/2022/03/09/c-c-%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E5%8C%85%E5%90%AB%E5%8F%A6%E4%B8%80%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2/" title="c/c++ 判断一个字符串中包含另一个字符串">c/c++ 判断一个字符串中包含另一个字符串</a><time datetime="2022-03-09T11:26:01.000Z" title="发表于 2022-03-09 19:26:01">2022-03-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/03/07/BFS%E6%A8%A1%E6%9D%BF/" title="BFS模板"><img src="https://s1.ax1x.com/2022/03/09/bWffdU.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFS模板"/></a><div class="content"><a class="title" href="/2022/03/07/BFS%E6%A8%A1%E6%9D%BF/" title="BFS模板">BFS模板</a><time datetime="2022-03-07T05:18:21.000Z" title="发表于 2022-03-07 13:18:21">2022-03-07</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Node%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">Node基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">前端基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/"><span class="card-category-list-name">前端框架</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">算法学习</span><span class="card-category-list-count">4</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/BFS/" style="font-size: 1.1em; color: #999">BFS</a> <a href="/tags/Js/" style="font-size: 1.1em; color: #999">Js</a> <a href="/tags/React/" style="font-size: 1.1em; color: #999">React</a> <a href="/tags/node/" style="font-size: 1.1em; color: #999">node</a> <a href="/tags/%E5%90%8E%E7%AB%AF/" style="font-size: 1.1em; color: #999">后端</a> <a href="/tags/%E5%9B%BE%E5%BA%8A/" style="font-size: 1.1em; color: #999">图床</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2-c/" style="font-size: 1.1em; color: #999">字符串 c++</a> <a href="/tags/%E6%95%85%E4%BA%8B/" style="font-size: 1.1em; color: #999">故事</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.5em; color: #99a9bf">算法</a> <a href="/tags/%E8%93%9D%E6%A1%A5%E6%9D%AF/" style="font-size: 1.5em; color: #99a9bf">蓝桥杯</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/11/"><span class="card-archive-list-date">十一月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/09/"><span class="card-archive-list-date">九月 2022</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/03/"><span class="card-archive-list-date">三月 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/02/"><span class="card-archive-list-date">二月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">11</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-01-31T11:30:25.439Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Y3000</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="chat_btn" type="button" title="聊天"><i class="fas fa-sms"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'Qj9hhAWghtIvy0LPKESx1nT4-gzGzoHsz',
+      appKey: 'Xui9h4EurDHGOccwms83l1wI',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script>function loadDisqus () {
+  var disqus_config = function () {
+    this.page.url = 'http://example.com/%E6%A1%86%E6%9E%B6/index.html'
+    this.page.identifier = '/%E6%A1%86%E6%9E%B6/index.html'
+    this.page.title = 'vue'
+  };
+
+  window.disqusReset = () => {
+    DISQUS.reset({
+      reload: true,
+      config: disqus_config
+    })
+  }
+
+  if (window.DISQUS) disqusReset()
+  else {
+    (function() { 
+      var d = document, s = d.createElement('script');
+      s.src = 'https://.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  }
+
+  document.getElementById('darkmode').addEventListener('click', () => {
+    setTimeout(() => window.disqusReset(), 200)
+  })
+}
+
+if ('Valine' === 'Disqus' || !true) {
+  if (true) btf.loadComment(document.getElementById('disqus_thread'), loadDisqus)
+  else loadDisqus()
+} else {
+  function loadOtherComment () {
+    loadDisqus()
+  }
+}
+</script></div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="true"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
